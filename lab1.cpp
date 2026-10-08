@@ -18,8 +18,8 @@ void threadFunc2() {
 }
 
 void runTask1_2_1() {
-    cout << "\n--- Zavdannia 1.2.1 (bez join/detach - avariine zavershennia std::terminate) ---\n";
-    cout << "Uvaha: Za standartom C++ znyshchennia std::thread bez join/detach vyklykaie terminate().\n";
+    cout << "\n--- Zavdannia 1.2.1---\n";
+    cout << "Uvaha: Za standartom C++ znyshchennia thread bez join/detach vyklykaie terminate().\n";
     cout << "Demonstruiemo stvorennia potokiv:\n";
     try {
         thread t1(threadFunc1);
@@ -30,7 +30,7 @@ void runTask1_2_1() {
 }
 
 void runTask1_2_2() {
-    cout << "\n--- Zavdannia 1.2.2 (z metodom detach) ---\n";
+    cout << "\n--- Zavdannia 1.2.2 ---\n";
     thread t1(threadFunc1);
     thread t2(threadFunc2);
     t1.detach();
@@ -61,7 +61,7 @@ void ListContains_Unsafe(int targetVal) {
 }
 
 void runTask1_2_3() {
-    cout << "\n--- Zavdannia 1.2.3 (Bez synkhronizatsii) ---\n";
+    cout << "\n--- Zavdannia 1.2.3 ---\n";
     globalList1.clear();
     int target = 42;
     thread t1(AddToList_Unsafe, target);
@@ -98,7 +98,7 @@ void ListContains_Mutex(int targetVal) {
 }
 
 void runTask1_2_4() {
-    cout << "\n--- Zavdannia 1.2.4 (Priame zastosuvannia mutex) ---\n";
+    cout << "\n--- Zavdannia 1.2.4 ---\n";
     globalList2.clear();
     int target = 100;
     thread t1(AddToList_Mutex, target);
@@ -127,7 +127,7 @@ void ListContains_Once(int targetVal) {
 }
 
 void runTask1_2_5() {
-    cout << "\n--- Zavdannia 1.2.5 (std::lock_guard + detach 10 potokiv) ---\n";
+    cout << "\n--- Zavdannia 1.2.5 ---\n";
     globalList3.clear();
     int baseVal = 50;
 
@@ -218,7 +218,7 @@ public:
 };
 
 void runTask1_2_6() {
-    cout << "\n--- Zavdannia 1.2.6 (Swap: std::lock + std::adopt_lock) ---\n";
+    cout << "\n--- Zavdannia 1.2.6 ---\n";
     exchangePerson person1(someData("Initial1", "Init1", "City1", 20));
     exchangePerson person2(someData("Initial2", "Init2", "City2", 25));
 
@@ -234,7 +234,7 @@ void runTask1_2_6() {
 }
 
 void runTask1_2_7() {
-    cout << "\n--- Zavdannia 1.2.7 (Swap: std::unique_lock + std::defer_lock) ---\n";
+    cout << "\n--- Zavdannia 1.2.7 ---\n";
     exchangePerson person1(someData("Initial1", "Init1", "City1", 20));
     exchangePerson person2(someData("Initial2", "Init2", "City2", 25));
 
@@ -252,13 +252,13 @@ void runTask1_2_7() {
 int main() {
     int choice = 0;
     do {
-        cout << "\n1 - Zavdannia 1.2.1 (Potoky bez join/detach)\n";
-        cout << "2 - Zavdannia 1.2.2 (Potoky z detach)\n";
-        cout << "3 - Zavdannia 1.2.3 (Spysok bez synkhronizatsii)\n";
-        cout << "4 - Zavdannia 1.2.4 (Synkhronizatsiia: mutex lock/unlock)\n";
-        cout << "5 - Zavdannia 1.2.5 (10 potokiv + std::lock_guard)\n";
-        cout << "6 - Zavdannia 1.2.6 (Swap: std::lock + adopt_lock)\n";
-        cout << "7 - Zavdannia 1.2.7 (Swap: unique_lock + defer_lock)\n";
+        cout << "\n1 - Zavdannia 1.2.1\n";
+        cout << "2 - Zavdannia 1.2.2\n";
+        cout << "3 - Zavdannia 1.2.3\n";
+        cout << "4 - Zavdannia 1.2.4\n";
+        cout << "5 - Zavdannia 1.2.5\n";
+        cout << "6 - Zavdannia 1.2.6\n";
+        cout << "7 - Zavdannia 1.2.7\n";
         cout << "0 - Vykhid\n";
         cout << "Oberit punkt: ";
         if (!(cin >> choice)) {
